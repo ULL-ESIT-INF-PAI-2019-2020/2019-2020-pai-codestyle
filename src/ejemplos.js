@@ -36,7 +36,7 @@ class InnerClass {
       try {
         // Note: this might fail.
         something();
-      } catch (err) {
+      } catch (error) {
         recover();
       }
     }
@@ -56,30 +56,30 @@ if (condition) {
 
 try {
   // ...
-} catch (e) {}
+} catch (error) {}
 
 
 // Array and objects: optionally block-like
-const a = [
+const arrayDeclaredInRows = [
   0,
   1,
   2,
 ];
 
-const b =
+const arrayInOnlyLine =
     [0, 1, 2];
 
-const a = {
+const objectDeclaredInRows = {
   a: 0,
   b: 1,
 };
     
-const b =
+const objectInOnlyLine =
     {a: 0, b: 1};
 
 
 // Function expressions
-some.reallyLongFunctionCall(arg1, arg2, arg3)
+some.reallyLongFunctionCall(operator, tag, jumDirection)
     .thatsWrapped()
     .then((result) => {
       // Indent the function body +2 relative to the indentation depth
@@ -92,12 +92,12 @@ some.reallyLongFunctionCall(arg1, arg2, arg3)
 
 // Switch statements.
 switch (animal) {
-  case Animal.BANDERSNATCH:
-    handleBandersnatch();
+  case Animal.DUCK:
+    handleDuck();
     break;
 
-  case Animal.JABBERWOCK:
-    handleJabberwock();
+  case Animal.GOOSE:
+    handleGOOSE();
     break;
 
   default:
@@ -106,31 +106,32 @@ switch (animal) {
 
 
 // Statements
+// Incorrect
 currentEstimate =
-    calc(currentEstimate + x * currentEstimate) /
+    squareArea(currentEstimate + x * currentEstimate) /
         2.0;
-
-currentEstimate = calc(currentEstimate + x *
+// This is okay
+currentEstimate = squareArea(currentEstimate + x *
     currentEstimate) / 2.0;
 
 
 // Horizontal Whitespaces
-// In a template expansion
-foo({a: [{c: d}]})
-`ab${1 + 2}cd`
+// In a template expansion (always use spaces between parameters)
+foo({recipe: [{ingredients: 4}]})
+`numero${1 + 2}horas`
 // After an open-block comment character
 this.foo = /** @type {number} */ (bar) ; or
-function(/** string */ foo) { ; or baz(/** buzz= */ true)}
+function animalCounter(/** string */ nameAnimal) { ; or baz(/** buzz= */ true)}
 
 //Correct comment 
 {
-  tiny: 42, // this is great
-  longer: 435, // this too
+  age: 42; // this is great
+  favouriteNumber: 435; // this too
 };
 
 {
-  tiny:   42,  // permitted, but future edits
-  longer: 435, // may leave it unaligned
+  age:   42;            // permitted, but future edits
+  favouriteNumber: 435; // may leave it unaligned
 };
 
 
@@ -151,15 +152,15 @@ if ((2 * 3 > (2*3) +1) && !(istrue) || (9 * 3 === 3 * 9))
 // is this.
 
 /* This is fine, too. */
-someFunction(obvious Param, /* shouldRender= */ true, /* name= */ 'hello');
+squareArea(side, /* shouldRender= */ true, /* name= */ 'hello');
 
 
 // Local variable declarations
 // Bad 
-let a = 1, b = 2;
+let greenBalls = 1, redBalls = 2;
 // Okay 
-let a = 1;
-let b = 2;
+let greenBalls = 1;
+let redBalls = 2;
 
 
 // Objects literals
@@ -167,25 +168,27 @@ method() { return this.foo + this.bar; }
 
 
 // String literals
-function arithmetic(a, b) {
+function arithmetic(parameterInitial, parameterFinal) {
   return `Here is a table of arithmetic operations:
-${a} + ${b} = ${a + b}
-${a} - ${b} = ${a - b}
-${a} * ${b} = ${a * b}
-${a} / ${b} = ${a / b}`;
+${parameterInitial} + ${parameterFinal} = ${parameterInitial + parameterFinal}
+${parameterInitial} - ${parameterFinal} = ${parameterInitial - parameterFinal}
+${parameterInitial} * ${parameterFinal} = ${parameterInitial * parameterFinal}
+${parameterInitial} / ${parameterFinal} = ${parameterInitial / parameterFinal}`;
 }
 
-const longString = 'This is a very long string that far exceeds the 80 ' +
+const longText = 'This is a very long string that far exceeds the 80 ' +
     'column limit. It does not contain long stretches of spaces since ' +
     'the concatenated strings are cleaner.';
 
 
 // Number literals
-Object example; 
-Object example();
+Object planet; 
+Object planet();
 
 
 // Rules common to all identifiers
+// Not understandable
 let val;  
 let value;
+// Good description name
 let gravityValue;
